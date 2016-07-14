@@ -1,0 +1,24 @@
+{
+    "name": "itsdizzy/trakt-api",
+    "description": "A simple library for the Trakt.tv API v2",
+    "license": "GPL-3.0",
+    "homepage": "https://github.com/ItsDizzy/trakt-api-laravel",
+    "authors": [
+        {
+            "name": "Dizzy",
+            "email": "itsdizzy40@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.5.9",
+        "illuminate/support": "~5.2",
+        "nesbot/carbon": "~1",
+        "guzzlehttp/guzzle": "~5"
+    },
+    "autoload": {
+        "psr-0": {
+            "Dizzy": "src/"
+        }
+    },
+    "minimum-stability": "stable"
+}
