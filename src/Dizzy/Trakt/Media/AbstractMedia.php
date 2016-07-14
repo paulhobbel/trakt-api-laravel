@@ -7,12 +7,122 @@
  */
 
 namespace Dizzy\Trakt\Media;
+use GuzzleHttp\ClientInterface;
+use Illuminate\Contracts\Support\Arrayable;
 
 /**
  * Class AbstractMedia
  * @package Dizzy\Trakt\Media
  */
-abstract class AbstractMedia
+abstract class AbstractMedia implements Arrayable
 {
-    //TODO: Write this class.
+    /**
+     * @var ClientInterface
+     */
+    protected $client;
+
+    /**
+     * @var array
+     */
+    protected $json;
+
+    /**
+     * @var array
+     */
+    protected $media;
+
+    /**
+     * AbstractMedia constructor.
+     * @param ClientInterface $client
+     * @param mixed $json
+     */
+    public function __construct(ClientInterface $client, $json)
+    {
+        $this->client = $client;
+        $this->json = $json;
+
+        $this->media = $this->getMedia($json);
+
+        $this->setMediaFields();
+    }
+
+    /**
+     * Gets the ids object.
+     * @return array
+     */
+    public function getIds()
+    {
+        return $this->media->ids;
+    }
+
+    /**
+     * Gets the slug.
+     * @return mixed
+     */
+    public function getSlug()
+    {
+        return $this->getIds()->slug;
+    }
+
+    /**
+     * Gets the title.
+     * @return mixed
+     */
+    public function getTitle()
+    {
+        return $this->media->title;
+    }
+
+
+
+    /**
+     * Converts the media json to an array.
+     * @return array
+     */
+    public function toArray()
+    {
+        return json_decode(json_encode($this->media), true);
+    }
+
+    /**
+     * Checks the json.
+     * @param $json
+     * @return mixed
+     */
+    private function getMedia($json)
+    {
+        if(property_exists($json, "type")) {
+            if ($this instanceof Episode) {
+                return $json->episode;
+            }
+            if ($this instanceof Season) {
+                return $json->season;
+            }
+            if ($this instanceof Movie) {
+                return $json->movie;
+            }
+            if ($this instanceof Show) {
+                return $json->show;
+            }
+            if ($this instanceof Person) {
+                return $json->person;
+            }
+        }
+        return $json;
+    }
+
+    /**
+     * Creates fields for all the keys.
+     */
+    protected function setMediaFields()
+    {
+        foreach ($this->media as $key => $value) {
+            $this->{$key} = $value;
+        }
+        foreach ($this->json as $key => $value) {
+            if ($key != $this->type) {
+                $this->{$key} = $value;
+            }
+        }
+    }
 }
