@@ -31,7 +31,7 @@ class Trakt
      * Trakt constructor.
      * @param ClientInterface $client
      */
-    public function __construct(ClientInterface $client)
+    public function __construct(ClientInterface $client = null)
     {
         $this->client = $client;
         if($client == null) {
