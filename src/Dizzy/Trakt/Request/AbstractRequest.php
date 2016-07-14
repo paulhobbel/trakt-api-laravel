@@ -157,7 +157,7 @@ abstract class AbstractRequest
         ];
 
         if($this->needsPostBody()) {
-            $options['body'] = json_encode($this->getPostBody() || []);
+            $options['body'] = json_encode($this->getPostBody());
         }
 
         return $options;
@@ -230,7 +230,10 @@ abstract class AbstractRequest
      * The default post body (should be overridden by the Request).
      * @return array
      */
-    abstract public function getPostBody();
+    public function getPostBody()
+    {
+        return [];
+    }
 
     abstract public function getRequestType();
 
