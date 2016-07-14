@@ -9,6 +9,7 @@
 namespace Dizzy\Trakt\Api;
 
 
+use Dizzy\Trakt\Request\AbstractRequest;
 use GuzzleHttp\ClientInterface;
 use Illuminate\Support\Collection;
 
@@ -116,9 +117,23 @@ abstract class AbstractEndpoint
         return $this;
     }
 
-    protected function request()
+    /**
+     * @param AbstractRequest $request
+     * @return mixed
+     * @throws \Dizzy\Trakt\Exceptions\HttpCodeException\BadRequestException
+     * @throws \Dizzy\Trakt\Exceptions\HttpCodeException\ServerErrorException
+     * @throws \Dizzy\Trakt\Exceptions\HttpCodeException\ServerUnavailableException
+     * @throws \Dizzy\Trakt\Exceptions\HttpCodeException\StatusCodeException
+     * @throws \Dizzy\Trakt\Exceptions\HttpCodeException\UnauthorizedException
+     * @throws \Dizzy\Trakt\Exceptions\HttpCodeException\UnprocessableEntityException
+     */
+    protected function request(AbstractRequest $request)
     {
-
+        return $request
+            ->setExtended($this->extended->implode(','))
+            ->setPage($this->page)
+            ->setLimit($this->limit)
+            ->make($this->client);
     }
 
     /**

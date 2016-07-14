@@ -20,9 +20,9 @@ interface ResponseHandler
 {
     /**
      * Handles a request
-     * @param ResponseInterface $response
      * @param ClientInterface $client
+     * @param ResponseInterface $response
      * @return mixed
      */
-    public function handle(ResponseInterface $response, ClientInterface $client);
+    public function handle(ClientInterface $client, ResponseInterface $response);
 }

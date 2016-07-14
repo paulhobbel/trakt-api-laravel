@@ -18,8 +18,15 @@ use GuzzleHttp\Message\ResponseInterface;
  */
 class DefaultResponseHandler extends AbstractResponseHandler implements ResponseHandler
 {
-    public function handle(ResponseInterface $response, ClientInterface $client)
+    /**
+     * The default handler for requests.
+     * @param ClientInterface $client
+     * @param ResponseInterface $response
+     * @return \Illuminate\Support\Collection
+     */
+    public function handle(ClientInterface $client, ResponseInterface $response)
     {
-        // TODO: Implement handle() method.
+        $json = $this->getJson($response);
+        return (is_array($json)) ? collect($json) : collect([$json]);
     }
 }
