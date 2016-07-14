@@ -8,6 +8,7 @@
 
 namespace Dizzy\Trakt;
 
+use Dizzy\Trakt\Api\Movies;
 use GuzzleHttp\ClientInterface;
 
 /**
@@ -20,6 +21,11 @@ class Trakt
      * @var ClientInterface
      */
     private $client;
+
+    /**
+     * @var Movies
+     */
+    public $movies;
 
     /**
      * Trakt constructor.
@@ -39,6 +45,6 @@ class Trakt
      */
     private function createEndpointsWrappers()
     {
-
+        $this->movies = new Movies($this->client);
     }
 }
