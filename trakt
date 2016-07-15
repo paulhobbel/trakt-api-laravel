@@ -1,0 +1,12 @@
+#!/usr/bin/env php
+<?php
+use Symfony\Component\Console\Application;
+use Dizzy\Trakt\Console\TraktGenerateCommand;
+
+require __DIR__ . '/vendor/autoload.php';
+
+$application = new Application('Trakt');
+
+$application->add(new TraktGenerateCommand());
+
+$application->run();

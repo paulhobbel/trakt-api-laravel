@@ -1,0 +1,4 @@
+public function {{method_name}}({{method_parameters}})
+{
+    return $this->request(new {{request_class}}({{request_parameters}}){{auth_token}});
+}
