@@ -31,10 +31,11 @@ class Trakt
      * Some magic works to let Facade's work correctly.
      * Trakt::endpoint doesn't work, but Trakt::endpoint() works
      * @param string $name
+     * @param mixed $arguments
      * @return mixed
      *
      */
-    public function __call($name)
+    public function __call($name, $arguments)
     {
         return $this->{$name};
     }
