@@ -10,6 +10,7 @@ namespace Dizzy\Trakt\Request;
 
 use Dizzy\Trakt\Contracts\ResponseHandler;
 use Dizzy\Trakt\Exceptions\HttpCodeException\StatusCodeFactory;
+use Dizzy\Trakt\Response\Handlers\DefaultResponseHandler;
 use Dizzy\Trakt\TraktHttpClient;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\ServerException;
@@ -179,7 +180,7 @@ abstract class AbstractRequest
     /**
      * Creates a request.
      * @param ClientInterface $client
-     * @return equestInterface
+     * @return RequestInterface
      */
     private function createRequest(ClientInterface $client)
     {
