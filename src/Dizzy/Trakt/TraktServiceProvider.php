@@ -25,6 +25,10 @@ class TraktServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__."/config/trakt.php" => config_path('trakt.php')
         ]);
+
+        $this->mergeConfigFrom(
+            __DIR__."/config/trakt.php", 'trakt'
+        );
     }
 
     /**
