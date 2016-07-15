@@ -149,9 +149,10 @@ class EndpointGenerator
         if ($this->filesystem->has($this->file) && $this->userWantsToOverwrite()) {
             $this->filesystem->delete($this->file);
             return $this->createContent()->writeToFile();
+        } else {
+            $this->output->writeln("Not overwriting " . $this->file);
         }
-        $this->output->writeln("Not overwriting " . $this->file);
-        return $this;
+        return $this->createContent()->writeToFile();
     }
 
     /**

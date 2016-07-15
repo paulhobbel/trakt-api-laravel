@@ -9,6 +9,7 @@
 namespace Dizzy\Trakt\Request\Movies;
 
 
+use Dizzy\Trakt\Contracts\AbstractRequestInterface;
 use Dizzy\Trakt\Request\AbstractRequest;
 use Dizzy\Trakt\Request\RequestType;
 
@@ -16,7 +17,7 @@ use Dizzy\Trakt\Request\RequestType;
  * Class Trending
  * @package Dizzy\Trakt\Request\Movies
  */
-class Trending extends AbstractRequest
+class Trending extends AbstractRequest implements AbstractRequestInterface
 {
     public function getRequestType()
     {
