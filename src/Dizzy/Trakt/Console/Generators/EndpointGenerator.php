@@ -146,11 +146,13 @@ class EndpointGenerator
 
         $this->uses = new Collection();
 
-        if ($this->filesystem->has($this->file) && $this->userWantsToOverwrite()) {
-            $this->filesystem->delete($this->file);
-            return $this->createContent()->writeToFile();
-        } else {
-            $this->output->writeln("Not overwriting " . $this->file);
+        if ($this->filesystem->has($this->file)) {
+            if ($this->userWantsToOverwrite()) {
+                $this->filesystem->delete($this->file);
+                return $this->createContent()->writeToFile();
+            } else {
+                return $this->output->writeln("Not overwriting " . $this->file);
+            }
         }
         return $this->createContent()->writeToFile();
     }
@@ -386,7 +388,9 @@ class EndpointGenerator
      */
     private function userWantsToOverwrite()
     {
-        $question = new Question("Class " . $this->className . " already exist, do you want to overwrite it?", false);
+        if($this->force) return true;
+
+        $question = new Question("Class " . $this->className . " already exist, do you want to overwrite it? (y/N) ", false);
         return $this->questionHelper->ask(
             $this->input,
             $this->output,
