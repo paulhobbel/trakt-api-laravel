@@ -16,8 +16,8 @@
         "guzzlehttp/guzzle": "~5"
     },
     "autoload": {
-        "psr-0": {
-            "Dizzy": "src/"
+        "psr-4": {
+            "Dizzy\\Trakt\\": "src/Dizzy/Trakt/"
         }
     },
     "minimum-stability": "stable"

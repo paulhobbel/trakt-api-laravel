@@ -29,14 +29,10 @@ class Trakt
 
     /**
      * Trakt constructor.
-     * @param ClientInterface $client
      */
-    public function __construct(ClientInterface $client)
+    public function __construct()
     {
-        $this->client = $client;
-        if($client == null) {
-            $this->client = TraktHttpClient::make();
-        }
+        $this->client = TraktHttpClient::make();
         $this->createEndpointsWrappers();
     }
 

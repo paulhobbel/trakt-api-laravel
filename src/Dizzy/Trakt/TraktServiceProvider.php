@@ -34,6 +34,8 @@ class TraktServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->bind('trakt', Trakt::class);
+        $this->app->bind('trakt', function($app) {
+            return new Trakt();
+        });
     }
 }
