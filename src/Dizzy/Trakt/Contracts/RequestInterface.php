@@ -9,13 +9,15 @@
 namespace Dizzy\Trakt\Contracts;
 
 
-use Dizzy\Trakt\Request\RequestType;
-
-interface AbstractRequestInterface
+/**
+ * Interface RequestInterface
+ * @package Dizzy\Trakt\Contracts
+ */
+interface RequestInterface
 {
     /**
      * Tells which request type needs to be used for this request.
-     * @return RequestType
+     * @return string
      */
     public function getRequestType();
 

@@ -2,25 +2,22 @@
 /**
  * Created by PhpStorm.
  * User: Dizzy
- * Date: 15-7-2016
- * Time: 23:15
+ * Date: 16-7-2016
+ * Time: 01:35
  */
 
-namespace Dizzy\Trakt\Request\People;
+namespace Dizzy\Trakt\Request\Movies;
 
 
 use Dizzy\Trakt\Request\AbstractRequest;
 use Dizzy\Trakt\Request\RequestType;
 
-class Shows extends AbstractRequest
+/**
+ * Class BoxOffice
+ * @package Dizzy\Trakt\Request\Movies
+ */
+class BoxOffice extends AbstractRequest
 {
-    private $id;
-
-    public function __construct($id)
-    {
-        parent::__construct();
-        $this->id = $id;
-    }
 
     /**
      * Tells which request type needs to be used for this request.
@@ -37,6 +34,6 @@ class Shows extends AbstractRequest
      */
     public function getUri()
     {
-        return "people/:id/shows";
+        return "movies/boxoffice";
     }
 }

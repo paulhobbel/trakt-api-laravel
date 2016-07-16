@@ -1,25 +1,29 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: Dizzy
- * Date: 15-7-2016
- * Time: 23:15
+ * User: paulh
+ * Date: 16-7-2016
+ * Time: 01:40
  */
 
-namespace Dizzy\Trakt\Request\People;
+namespace Dizzy\Trakt\Request\Genres;
 
 
 use Dizzy\Trakt\Request\AbstractRequest;
 use Dizzy\Trakt\Request\RequestType;
 
-class Shows extends AbstractRequest
+class Get extends AbstractRequest
 {
-    private $id;
+    private $type;
 
-    public function __construct($id)
+    /**
+     * Get constructor.
+     * @param $type
+     */
+    public function __construct($type)
     {
         parent::__construct();
-        $this->id = $id;
+        $this->type = $type;
     }
 
     /**
@@ -37,6 +41,6 @@ class Shows extends AbstractRequest
      */
     public function getUri()
     {
-        return "people/:id/shows";
+        return "genres/:type";
     }
 }

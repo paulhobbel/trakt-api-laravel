@@ -9,7 +9,6 @@
 namespace Dizzy\Trakt\Request\Movies;
 
 
-use Dizzy\Trakt\Contracts\AbstractRequestInterface;
 use Dizzy\Trakt\Request\AbstractRequest;
 use Dizzy\Trakt\Request\RequestType;
 
@@ -17,13 +16,21 @@ use Dizzy\Trakt\Request\RequestType;
  * Class Popular
  * @package Dizzy\Trakt\Request\Movies
  */
-class Popular extends AbstractRequest implements AbstractRequestInterface
+class Popular extends AbstractRequest
 {
+    /**
+     * Tells which request type needs to be used for this request.
+     * @return string
+     */
     public function getRequestType()
     {
         return RequestType::GET;
     }
 
+    /**
+     * Tells the uri of this endpoint.
+     * @return string
+     */
     public function getUri()
     {
         return "movies/popular";

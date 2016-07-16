@@ -8,7 +8,7 @@
 
 namespace Dizzy\Trakt\Request;
 
-use Dizzy\Trakt\Contracts\ResponseHandler;
+use Dizzy\Trakt\Contracts\ResponseHandlerInterface;
 use Dizzy\Trakt\Exceptions\HttpCodeException\StatusCodeFactory;
 use Dizzy\Trakt\Response\Handlers\DefaultResponseHandler;
 use Dizzy\Trakt\TraktHttpClient;
@@ -22,10 +22,10 @@ use Illuminate\Support\Collection;
  * Class AbstractRequest
  * @package Dizzy\Trakt\Request
  */
-abstract class AbstractRequest
+abstract class AbstractRequest implements \Dizzy\Trakt\Contracts\RequestInterface
 {
     /**
-     * @var ResponseHandler
+     * @var ResponseHandlerInterface
      */
     private $responseHandler;
 
@@ -45,16 +45,16 @@ abstract class AbstractRequest
 
     /**
      * Sets the current response handler.
-     * @param ResponseHandler $responseHandler
+     * @param ResponseHandlerInterface $responseHandler
      */
-    private function setResponseHandler(ResponseHandler $responseHandler)
+    private function setResponseHandler(ResponseHandlerInterface $responseHandler)
     {
         $this->responseHandler = $responseHandler;
     }
 
     /**
      * Gets the current response handler.
-     * @return ResponseHandler
+     * @return ResponseHandlerInterface
      */
     private function getResponseHandler()
     {
@@ -108,7 +108,7 @@ abstract class AbstractRequest
 
     /**
      * @param ClientInterface $client
-     * @param ResponseHandler|null $responseHandler
+     * @param ResponseHandlerInterface|null $responseHandler
      * @return mixed
      * @throws \Dizzy\Trakt\Exceptions\HttpCodeException\BadRequestException
      * @throws \Dizzy\Trakt\Exceptions\HttpCodeException\ServerErrorException
@@ -117,7 +117,7 @@ abstract class AbstractRequest
      * @throws \Dizzy\Trakt\Exceptions\HttpCodeException\UnauthorizedException
      * @throws \Dizzy\Trakt\Exceptions\HttpCodeException\UnprocessableEntityException
      */
-    public function make(ClientInterface $client, ResponseHandler $responseHandler = null)
+    public function make(ClientInterface $client, ResponseHandlerInterface $responseHandler = null)
     {
         if($responseHandler) $this->setResponseHandler($responseHandler);
 
@@ -235,8 +235,4 @@ abstract class AbstractRequest
     {
         return [];
     }
-
-    abstract public function getRequestType();
-
-    abstract public function getUri();
 }

@@ -9,20 +9,22 @@
 namespace Dizzy\Trakt\Contracts;
 
 
+use Dizzy\Trakt\Media\AbstractMedia;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Message\ResponseInterface;
+use Illuminate\Support\Collection;
 
 /**
- * Interface ResponseHandler
+ * Interface ResponseHandlerInterface
  * @package Dizzy\Trakt\Contracts
  */
-interface ResponseHandler
+interface ResponseHandlerInterface
 {
     /**
      * Handles a request
      * @param ClientInterface $client
      * @param ResponseInterface $response
-     * @return mixed
+     * @return Collection|AbstractMedia
      */
     public function handle(ClientInterface $client, ResponseInterface $response);
 }

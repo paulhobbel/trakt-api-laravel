@@ -2,24 +2,34 @@
 /**
  * Created by PhpStorm.
  * User: Dizzy
- * Date: 15-7-2016
- * Time: 23:15
+ * Date: 16-7-2016
+ * Time: 02:04
  */
 
-namespace Dizzy\Trakt\Request\People;
-
+namespace Dizzy\Trakt\Request\Movies;
 
 use Dizzy\Trakt\Request\AbstractRequest;
 use Dizzy\Trakt\Request\RequestType;
 
-class Shows extends AbstractRequest
+/**
+ * Class Translations
+ * @package Dizzy\Trakt\Request\Movies
+ */
+class Translations extends AbstractRequest
 {
     private $id;
+    private $country;
 
-    public function __construct($id)
+    /**
+     * Translations constructor.
+     * @param $id
+     * @param $country
+     */
+    public function __construct($id, $country = null)
     {
         parent::__construct();
         $this->id = $id;
+        $this->country = $country;
     }
 
     /**
@@ -37,6 +47,6 @@ class Shows extends AbstractRequest
      */
     public function getUri()
     {
-        return "people/:id/shows";
+        return "movies/:id/translations/:country";
     }
 }

@@ -8,7 +8,9 @@
 
 namespace Dizzy\Trakt;
 
+use Dizzy\Trakt\Api\Genres;
 use Dizzy\Trakt\Api\Movies;
+use Dizzy\Trakt\Api\People;
 use GuzzleHttp\ClientInterface;
 
 /**
@@ -26,6 +28,16 @@ class Trakt
      * @var Movies
      */
     public $movies;
+
+    /**
+     * @var People
+     */
+    public $people;
+
+    /**
+     * @var Genres
+     */
+    public $genres;
 
     /**
      * Some magic works to let Facade's work correctly.
@@ -55,5 +67,7 @@ class Trakt
     private function createEndpointsWrappers()
     {
         $this->movies = new Movies($this->client);
+        $this->people = new People($this->client);
+        $this->genres = new Genres($this->client);
     }
 }

@@ -9,11 +9,10 @@
 namespace Dizzy\Trakt\Request\People;
 
 
-use Dizzy\Trakt\Contracts\AbstractRequestInterface;
 use Dizzy\Trakt\Request\AbstractRequest;
 use Dizzy\Trakt\Request\RequestType;
 
-class Movies extends AbstractRequest implements AbstractRequestInterface
+class Movies extends AbstractRequest
 {
     private $id;
 
@@ -23,11 +22,19 @@ class Movies extends AbstractRequest implements AbstractRequestInterface
         $this->id = $id;
     }
 
+    /**
+     * Tells which request type needs to be used for this request.
+     * @return string
+     */
     public function getRequestType()
     {
         return RequestType::GET;
     }
 
+    /**
+     * Tells the uri of this endpoint.
+     * @return string
+     */
     public function getUri()
     {
         return "people/:id/movies";

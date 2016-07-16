@@ -8,6 +8,7 @@
 
 namespace Dizzy\Trakt\Response\Handlers;
 
+use Dizzy\Trakt\Contracts\ResponseHandlerInterface;
 use Dizzy\Trakt\Media\AbstractMedia;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Message\ResponseInterface;
@@ -16,7 +17,7 @@ use GuzzleHttp\Message\ResponseInterface;
  * Class AbstractResponseHandler
  * @package Dizzy\Trakt\Response\Handlers
  */
-abstract class AbstractResponseHandler
+abstract class AbstractResponseHandler implements ResponseHandlerInterface
 {
     protected function getJson(ResponseInterface $response)
     {
@@ -40,10 +41,9 @@ abstract class AbstractResponseHandler
      * @param ResponseInterface $response
      * @param AbstractMedia $mediaObject
      * @param ClientInterface $client
-     * @param $item
      * @return array
      */
-    protected function transformToMediaObjects(ResponseInterface $response, AbstractMedia $mediaObject, ClientInterface $client, $item)
+    protected function transformToMediaObjects(ResponseInterface $response, AbstractMedia $mediaObject, ClientInterface $client)
     {
         $objects = [];
         foreach($this->getJson($response) as $item) {

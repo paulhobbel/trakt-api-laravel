@@ -2,24 +2,32 @@
 /**
  * Created by PhpStorm.
  * User: Dizzy
- * Date: 15-7-2016
- * Time: 23:15
+ * Date: 16-7-2016
+ * Time: 01:48
  */
 
-namespace Dizzy\Trakt\Request\People;
+namespace Dizzy\Trakt\Request\Movies;
 
 
 use Dizzy\Trakt\Request\AbstractRequest;
 use Dizzy\Trakt\Request\RequestType;
 
-class Shows extends AbstractRequest
+/**
+ * Class Updated
+ * @package Dizzy\Trakt\Request\Movies
+ */
+class Updated extends AbstractRequest
 {
-    private $id;
+    private $date;
 
-    public function __construct($id)
+    /**
+     * Updated constructor.
+     * @param $date
+     */
+    public function __construct($date)
     {
         parent::__construct();
-        $this->id = $id;
+        $this->date = $date;
     }
 
     /**
@@ -37,6 +45,6 @@ class Shows extends AbstractRequest
      */
     public function getUri()
     {
-        return "people/:id/shows";
+        return "movies/updated/:date";
     }
 }

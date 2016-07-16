@@ -3,19 +3,27 @@
  * Created by PhpStorm.
  * User: Dizzy
  * Date: 15-7-2016
- * Time: 23:15
+ * Time: 23:05
  */
 
-namespace Dizzy\Trakt\Request\People;
+namespace Dizzy\Trakt\Request\Movies;
 
 
 use Dizzy\Trakt\Request\AbstractRequest;
 use Dizzy\Trakt\Request\RequestType;
 
-class Shows extends AbstractRequest
+/**
+ * Class Get
+ * @package Dizzy\Trakt\Request\Movies
+ */
+class Summary extends AbstractRequest
 {
     private $id;
 
+    /**
+     * Summary constructor.
+     * @param $id
+     */
     public function __construct($id)
     {
         parent::__construct();
@@ -37,6 +45,6 @@ class Shows extends AbstractRequest
      */
     public function getUri()
     {
-        return "people/:id/shows";
+        return "movies/:id";
     }
 }
