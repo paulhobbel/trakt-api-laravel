@@ -11,6 +11,7 @@ namespace Dizzy\Trakt\Request\Genres;
 
 use Dizzy\Trakt\Request\AbstractRequest;
 use Dizzy\Trakt\Request\RequestType;
+use Dizzy\Trakt\Response\Genres\GenresHandler;
 use Dizzy\Trakt\Traits\RequestParameters\TypeTrait;
 
 /**
@@ -28,7 +29,9 @@ class Get extends AbstractRequest
     public function __construct($type)
     {
         parent::__construct();
+
         $this->setType($type);
+        $this->setResponseHandler(new GenresHandler());
     }
 
     /**

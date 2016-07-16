@@ -47,7 +47,7 @@ abstract class AbstractRequest implements \Dizzy\Trakt\Contracts\RequestInterfac
      * Sets the current response handler.
      * @param ResponseHandlerInterface $responseHandler
      */
-    private function setResponseHandler(ResponseHandlerInterface $responseHandler)
+    protected function setResponseHandler(ResponseHandlerInterface $responseHandler)
     {
         $this->responseHandler = $responseHandler;
     }

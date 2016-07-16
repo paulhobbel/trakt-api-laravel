@@ -33,12 +33,10 @@ abstract class AbstractMedia implements Arrayable
 
     /**
      * AbstractMedia constructor.
-     * @param ClientInterface $client
      * @param mixed $json
      */
-    public function __construct(ClientInterface $client, $json)
+    public function __construct($json)
     {
-        $this->client = $client;
         $this->json = $json;
 
         $this->media = $this->getMedia($json);
@@ -118,11 +116,6 @@ abstract class AbstractMedia implements Arrayable
     {
         foreach ($this->media as $key => $value) {
             $this->{$key} = $value;
-        }
-        foreach ($this->json as $key => $value) {
-            if ($key != $this->type) {
-                $this->{$key} = $value;
-            }
         }
     }
 }
