@@ -11,6 +11,7 @@ namespace Dizzy\Trakt\Request\Movies;
 
 use Dizzy\Trakt\Request\AbstractRequest;
 use Dizzy\Trakt\Request\RequestType;
+use Dizzy\Trakt\Response\Movies\SummaryHandler;
 use Dizzy\Trakt\Traits\RequestParameters\IdTrait;
 
 /**
@@ -28,7 +29,9 @@ class Summary extends AbstractRequest
     public function __construct($id)
     {
         parent::__construct();
+
         $this->setId($id);
+        $this->setResponseHandler(new SummaryHandler());
     }
 
     /**
