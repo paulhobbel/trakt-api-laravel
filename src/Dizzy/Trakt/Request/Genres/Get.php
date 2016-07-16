@@ -1,7 +1,7 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: paulh
+ * User: Dizzy
  * Date: 16-7-2016
  * Time: 01:40
  */
@@ -11,10 +11,15 @@ namespace Dizzy\Trakt\Request\Genres;
 
 use Dizzy\Trakt\Request\AbstractRequest;
 use Dizzy\Trakt\Request\RequestType;
+use Dizzy\Trakt\Traits\RequestParameters\TypeTrait;
 
+/**
+ * Class Get
+ * @package Dizzy\Trakt\Request\Genres
+ */
 class Get extends AbstractRequest
 {
-    private $type;
+    use TypeTrait;
 
     /**
      * Get constructor.
@@ -23,7 +28,7 @@ class Get extends AbstractRequest
     public function __construct($type)
     {
         parent::__construct();
-        $this->type = $type;
+        $this->setType($type);
     }
 
     /**

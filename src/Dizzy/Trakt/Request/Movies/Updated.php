@@ -9,8 +9,10 @@
 namespace Dizzy\Trakt\Request\Movies;
 
 
+use Carbon\Carbon;
 use Dizzy\Trakt\Request\AbstractRequest;
 use Dizzy\Trakt\Request\RequestType;
+use Dizzy\Trakt\Traits\RequestParameters\StartDateTrait;
 
 /**
  * Class Updated
@@ -18,16 +20,16 @@ use Dizzy\Trakt\Request\RequestType;
  */
 class Updated extends AbstractRequest
 {
-    private $date;
+    use StartDateTrait;
 
     /**
      * Updated constructor.
      * @param $date
      */
-    public function __construct($date)
+    public function __construct(Carbon $date = null)
     {
         parent::__construct();
-        $this->date = $date;
+        $this->setStartDate($date);
     }
 
     /**
@@ -45,6 +47,6 @@ class Updated extends AbstractRequest
      */
     public function getUri()
     {
-        return "movies/updated/:date";
+        return "movies/updated/:start_date";
     }
 }

@@ -11,6 +11,7 @@ namespace Dizzy\Trakt\Request\Movies;
 
 use Dizzy\Trakt\Request\AbstractRequest;
 use Dizzy\Trakt\Request\RequestType;
+use Dizzy\Trakt\Traits\RequestParameters\PeriodTrait;
 
 /**
  * Class Collected
@@ -18,7 +19,7 @@ use Dizzy\Trakt\Request\RequestType;
  */
 class Collected extends AbstractRequest
 {
-    private $period;
+    use PeriodTrait;
 
     /**
      * Collected constructor.
@@ -27,7 +28,7 @@ class Collected extends AbstractRequest
     public function __construct($period = null)
     {
         parent::__construct();
-        $this->period = $period;
+        $this->setPeriod($period);
     }
 
     /**

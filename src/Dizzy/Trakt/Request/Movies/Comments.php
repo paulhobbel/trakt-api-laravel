@@ -10,6 +10,8 @@ namespace Dizzy\Trakt\Request\Movies;
 
 use Dizzy\Trakt\Request\AbstractRequest;
 use Dizzy\Trakt\Request\RequestType;
+use Dizzy\Trakt\Traits\RequestParameters\IdTrait;
+use Dizzy\Trakt\Traits\RequestParameters\SortTrait;
 
 /**
  * Class Comments
@@ -17,8 +19,7 @@ use Dizzy\Trakt\Request\RequestType;
  */
 class Comments extends AbstractRequest
 {
-    private $id;
-    private $sort;
+    use IdTrait, SortTrait;
 
     /**
      * Comments constructor.
@@ -28,8 +29,8 @@ class Comments extends AbstractRequest
     public function __construct($id, $sort = null)
     {
         parent::__construct();
-        $this->id = $id;
-        $this->sort = $sort;
+        $this->setId($id);
+        $this->setSort($sort);
     }
 
     /**

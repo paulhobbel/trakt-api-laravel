@@ -11,6 +11,7 @@ namespace Dizzy\Trakt\Request\Movies;
 
 use Dizzy\Trakt\Request\AbstractRequest;
 use Dizzy\Trakt\Request\RequestType;
+use Dizzy\Trakt\Traits\RequestParameters\IdTrait;
 
 /**
  * Class Aliases
@@ -18,7 +19,7 @@ use Dizzy\Trakt\Request\RequestType;
  */
 class Aliases extends AbstractRequest
 {
-    private $id;
+    use IdTrait;
 
     /**
      * Aliases constructor.
@@ -27,7 +28,7 @@ class Aliases extends AbstractRequest
     public function __construct($id)
     {
         parent::__construct();
-        $this->id = $id;
+        $this->setId($id);
     }
 
     /**

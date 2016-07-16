@@ -11,6 +11,7 @@ namespace Dizzy\Trakt\Request\Movies;
 
 use Dizzy\Trakt\Request\AbstractRequest;
 use Dizzy\Trakt\Request\RequestType;
+use Dizzy\Trakt\Traits\RequestParameters\PeriodTrait;
 
 /**
  * Class Played
@@ -18,16 +19,16 @@ use Dizzy\Trakt\Request\RequestType;
  */
 class Played extends AbstractRequest
 {
-    private $period;
+    use PeriodTrait;
 
     /**
      * Played constructor.
-     * @param null $period
+     * @param null $period The period, this can be equal to weekly, monthly or all, defaults to weekly.
      */
     public function __construct($period = null)
     {
         parent::__construct();
-        $this->period = $period;
+        $this->setPeriod($period);
     }
 
     /**

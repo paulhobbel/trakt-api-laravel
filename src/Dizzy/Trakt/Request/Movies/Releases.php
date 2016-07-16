@@ -11,6 +11,8 @@ namespace Dizzy\Trakt\Request\Movies;
 
 use Dizzy\Trakt\Request\AbstractRequest;
 use Dizzy\Trakt\Request\RequestType;
+use Dizzy\Trakt\Traits\RequestParameters\CountryTrait;
+use Dizzy\Trakt\Traits\RequestParameters\IdTrait;
 
 /**
  * Class Releases
@@ -18,8 +20,7 @@ use Dizzy\Trakt\Request\RequestType;
  */
 class Releases extends AbstractRequest
 {
-    private $id;
-    private $country;
+    use IdTrait, CountryTrait;
 
     /**
      * Releases constructor.
@@ -29,8 +30,8 @@ class Releases extends AbstractRequest
     public function __construct($id, $country = null)
     {
         parent::__construct();
-        $this->id = $id;
-        $this->country = $country;
+        $this->setId($id);
+        $this->setCountry($country);
     }
 
     /**

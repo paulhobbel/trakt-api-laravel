@@ -11,14 +11,15 @@ namespace Dizzy\Trakt\Request\Movies;
 
 use Dizzy\Trakt\Request\AbstractRequest;
 use Dizzy\Trakt\Request\RequestType;
+use Dizzy\Trakt\Traits\RequestParameters\IdTrait;
 
 /**
- * Class Get
+ * Class Summary
  * @package Dizzy\Trakt\Request\Movies
  */
 class Summary extends AbstractRequest
 {
-    private $id;
+    use IdTrait;
 
     /**
      * Summary constructor.
@@ -27,7 +28,7 @@ class Summary extends AbstractRequest
     public function __construct($id)
     {
         parent::__construct();
-        $this->id = $id;
+        $this->setId($id);
     }
 
     /**

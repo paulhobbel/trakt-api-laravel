@@ -11,15 +11,16 @@ namespace Dizzy\Trakt\Request\People;
 
 use Dizzy\Trakt\Request\AbstractRequest;
 use Dizzy\Trakt\Request\RequestType;
+use Dizzy\Trakt\Traits\RequestParameters\IdTrait;
 
 class Movies extends AbstractRequest
 {
-    private $id;
+    use IdTrait;
 
     public function __construct($id)
     {
         parent::__construct();
-        $this->id = $id;
+        $this->setId($id);
     }
 
     /**
