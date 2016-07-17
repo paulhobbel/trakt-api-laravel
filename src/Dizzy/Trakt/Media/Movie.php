@@ -24,7 +24,7 @@ class Movie extends AbstractMedia
     /**
      * @var mixed
      */
-    private $ids;
+    protected $ids;
 
     /**
      * Movie constructor.
