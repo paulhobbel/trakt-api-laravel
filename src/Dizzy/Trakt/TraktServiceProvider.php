@@ -42,4 +42,14 @@ class TraktServiceProvider extends ServiceProvider
             return new Trakt();
         });
     }
+
+    /**
+     * Get the services provided by the provider.
+     *
+     * @return array
+     */
+    public function provides()
+    {
+        return [Trakt::class];
+    }
 }
