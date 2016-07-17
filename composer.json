@@ -24,5 +24,10 @@
     "minimum-stability": "stable",
     "require-dev": {
         "symfony/console": "^3.1"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
     }
 }
