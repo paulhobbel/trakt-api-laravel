@@ -31,6 +31,7 @@ abstract class AbstractMedia implements Arrayable
      * @var array
      */
     protected $media;
+
     /**
      * @var EndpointInterface
      */
@@ -70,17 +71,6 @@ abstract class AbstractMedia implements Arrayable
     {
         return $this->getIds()->slug;
     }
-
-    /**
-     * Gets the title.
-     * @return mixed
-     */
-    public function getTitle()
-    {
-        return $this->media->title;
-    }
-
-
 
     /**
      * Converts the media json to an array.

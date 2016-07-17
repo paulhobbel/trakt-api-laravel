@@ -14,12 +14,14 @@ use Dizzy\Trakt\Request\Movies\Anticipated as AnticipatedRequest;
 use Dizzy\Trakt\Request\Movies\BoxOffice as BoxOfficeRequest;
 use Dizzy\Trakt\Request\Movies\Collected as CollectedRequest;
 use Dizzy\Trakt\Request\Movies\Comments as CommentsRequest;
+use Dizzy\Trakt\Request\Movies\People as PeopleRequest;
 use Dizzy\Trakt\Request\Movies\Played as PlayedRequest;
 use Dizzy\Trakt\Request\Movies\Popular as PopularRequest;
 use Dizzy\Trakt\Request\Movies\Releases as ReleasesRequest;
 use Dizzy\Trakt\Request\Movies\Summary as SummaryRequest;
 use Dizzy\Trakt\Request\Movies\Translations as TranslationsRequest;
 use Dizzy\Trakt\Request\Movies\Trending as TrendingRequest;
+use Carbon\Carbon;
 use Dizzy\Trakt\Request\Movies\Updated as UpdatedRequest;
 use Dizzy\Trakt\Request\Movies\Watched as WatchedRequest;
 
@@ -50,6 +52,11 @@ class Movies extends AbstractEndpoint {
 	public function comments($id, $sort = null)
     {
         return $this->request(new CommentsRequest($id, $sort));
+    }
+
+	public function people($id)
+    {
+        return $this->request(new PeopleRequest($id));
     }
 
 	public function played($period = null)
@@ -87,7 +94,7 @@ class Movies extends AbstractEndpoint {
         return $this->request(new TrendingRequest());
     }
 
-	public function updated($date)
+	public function updated(Carbon $date = null)
     {
         return $this->request(new UpdatedRequest($date));
     }
