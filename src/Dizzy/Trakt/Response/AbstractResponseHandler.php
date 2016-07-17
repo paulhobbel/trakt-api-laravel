@@ -6,7 +6,7 @@
  * Time: 11:46
  */
 
-namespace Dizzy\Trakt\Response\Handlers;
+namespace Dizzy\Trakt\Response;
 
 use Dizzy\Trakt\Contracts\ResponseHandlerInterface;
 use Dizzy\Trakt\Media\AbstractMedia;
@@ -15,7 +15,7 @@ use GuzzleHttp\Message\ResponseInterface;
 
 /**
  * Class AbstractResponseHandler
- * @package Dizzy\Trakt\Response\Handlers
+ * @package Dizzy\Trakt\Response
  */
 abstract class AbstractResponseHandler implements ResponseHandlerInterface
 {

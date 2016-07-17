@@ -11,7 +11,7 @@ namespace Dizzy\Trakt\Response\People;
 use Dizzy\Trakt\Api\Movies;
 use Dizzy\Trakt\Media\AbstractMedia;
 use Dizzy\Trakt\Media\Person;
-use Dizzy\Trakt\Response\Handlers\AbstractResponseHandler;
+use Dizzy\Trakt\Response\AbstractResponseHandler;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Message\ResponseInterface;
 use Illuminate\Support\Collection;

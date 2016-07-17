@@ -6,7 +6,7 @@
  * Time: 11:37
  */
 
-namespace Dizzy\Trakt\Response\Handlers;
+namespace Dizzy\Trakt\Response;
 
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Message\ResponseInterface;

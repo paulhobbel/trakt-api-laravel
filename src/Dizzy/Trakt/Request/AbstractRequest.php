@@ -10,7 +10,7 @@ namespace Dizzy\Trakt\Request;
 
 use Dizzy\Trakt\Contracts\ResponseHandlerInterface;
 use Dizzy\Trakt\Exceptions\HttpCodeException\StatusCodeFactory;
-use Dizzy\Trakt\Response\Handlers\DefaultResponseHandler;
+use Dizzy\Trakt\Response\DefaultResponseHandler;
 use Dizzy\Trakt\TraktHttpClient;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\ServerException;

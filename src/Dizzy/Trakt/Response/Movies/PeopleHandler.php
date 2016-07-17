@@ -10,7 +10,7 @@ namespace Dizzy\Trakt\Response\Movies;
 
 
 use Dizzy\Trakt\Media\AbstractMedia;
-use Dizzy\Trakt\Response\Handlers\AbstractResponseHandler;
+use Dizzy\Trakt\Response\AbstractResponseHandler;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Message\ResponseInterface;
 use Illuminate\Support\Collection;

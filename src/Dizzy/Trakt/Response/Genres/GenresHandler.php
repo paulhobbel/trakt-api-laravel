@@ -11,7 +11,7 @@ namespace Dizzy\Trakt\Response\Genres;
 use Dizzy\Trakt\Api\Genres;
 use Dizzy\Trakt\Media\AbstractMedia;
 use Dizzy\Trakt\Media\Genre;
-use Dizzy\Trakt\Response\Handlers\AbstractResponseHandler;
+use Dizzy\Trakt\Response\AbstractResponseHandler;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Message\ResponseInterface;
 use Illuminate\Support\Collection;
