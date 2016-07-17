@@ -9,6 +9,7 @@
 namespace Dizzy\Trakt\Api;
 
 
+use Dizzy\Trakt\Contracts\EndpointInterface;
 use Dizzy\Trakt\Request\AbstractRequest;
 use GuzzleHttp\ClientInterface;
 use Illuminate\Support\Collection;
@@ -17,7 +18,7 @@ use Illuminate\Support\Collection;
  * Class AbstractEndpoint
  * @package Dizzy\Trakt\Api
  */
-abstract class AbstractEndpoint
+abstract class AbstractEndpoint implements EndpointInterface
 {
     /**
      * @var ClientInterface

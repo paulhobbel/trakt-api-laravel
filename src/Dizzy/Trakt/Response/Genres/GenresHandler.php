@@ -8,6 +8,7 @@
 
 namespace Dizzy\Trakt\Response\Genres;
 
+use Dizzy\Trakt\Api\Genres;
 use Dizzy\Trakt\Media\AbstractMedia;
 use Dizzy\Trakt\Media\Genre;
 use Dizzy\Trakt\Response\Handlers\AbstractResponseHandler;
@@ -32,20 +33,21 @@ class GenresHandler extends AbstractResponseHandler
     {
         $json = $this->getJson($response);
 
-        return $this->createGenres($json);
+        return $this->createGenres($client, $json);
     }
 
     /**
      * Generate a collection of genres.
+     * @param ClientInterface $client
      * @param $json
      * @return Collection
      */
-    private function createGenres($json)
+    private function createGenres(ClientInterface $client, $json)
     {
         $genres = new Collection();
 
         foreach ($json as $genre) {
-            $genres->push(new Genre($genre));
+            $genres->push(new Genre($client, new Genres($client), $genre));
         }
 
         return $genres;

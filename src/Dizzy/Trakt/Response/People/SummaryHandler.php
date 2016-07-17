@@ -8,6 +8,7 @@
 
 namespace Dizzy\Trakt\Response\People;
 
+use Dizzy\Trakt\Api\Movies;
 use Dizzy\Trakt\Media\AbstractMedia;
 use Dizzy\Trakt\Media\Person;
 use Dizzy\Trakt\Response\Handlers\AbstractResponseHandler;
@@ -32,6 +33,6 @@ class SummaryHandler extends AbstractResponseHandler
     {
         $json = $this->getJson($response);
 
-        return new Person($json);
+        return new Person($client, new Movies($client), $json);
     }
 }

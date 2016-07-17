@@ -7,6 +7,7 @@
  */
 
 namespace Dizzy\Trakt\Media;
+use Dizzy\Trakt\Contracts\EndpointInterface;
 use GuzzleHttp\ClientInterface;
 use Illuminate\Contracts\Support\Arrayable;
 
@@ -30,13 +31,21 @@ abstract class AbstractMedia implements Arrayable
      * @var array
      */
     protected $media;
+    /**
+     * @var EndpointInterface
+     */
+    protected $endpoint;
 
     /**
      * AbstractMedia constructor.
+     * @param ClientInterface $client
+     * @param EndpointInterface $endpoint
      * @param mixed $json
      */
-    public function __construct($json)
+    public function __construct(ClientInterface $client, EndpointInterface $endpoint, $json)
     {
+        $this->client = $client;
+        $this->endpoint = $endpoint;
         $this->json = $json;
 
         $this->media = $this->getMedia($json);
