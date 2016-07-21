@@ -11,7 +11,7 @@ To install this library you need to use composer, you can get it from [here](htt
 When you have that installed which you probably already have since you already made a laravel project,
 you can run the following command:
 ```bash
-composer require itsdizzy/trakt dev-master
+composer require itsdizzy/trakt-api 1.0.x-dev
 ```
 
 Like any laravel library you have to tell laravel how it has to use it.
